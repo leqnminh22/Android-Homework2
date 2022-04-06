@@ -5,7 +5,9 @@
       <map>
         <entry key="..\:/AndroidStudioProjects/Homework2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.343" />
         <entry key="..\:/AndroidStudioProjects/Homework2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.343" />
-        <entry key="..\:/AndroidStudioProjects/Homework2/app/src/main/res/layout/activity_main.xml" value="0.49056603773584906" />
+        <entry key="..\:/AndroidStudioProjects/Homework2/app/src/main/res/drawable/rectangle.xml" value="0.3875" />
+        <entry key="..\:/AndroidStudioProjects/Homework2/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/AndroidStudioProjects/Homework2/app/src/main/res/layout/activity_main2.xml" value="0.5541666666666667" />
         <entry key="..\:/AndroidStudioProjects/Homework2/app/src/main/res/layout/calculator_ui.xml" value="0.5541666666666667" />
       </map>
     </option>
