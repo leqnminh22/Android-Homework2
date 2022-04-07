@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="calc_button">
+        <item name="backgroundTint">@color/darkGrey</item>>
+        <item name="android:textSize">@dimen/calcBtnTextSize</item>
+
+    </style>
+
+    <style name="calc_land_button">
+        <item name="backgroundTint">@color/red</item>>
+        <item name="android:textSize">@dimen/calcBtnTextSize</item>
+    </style>
+
+    <style name="calc_equal_button">
+        <item name="backgroundTint">@color/orange</item>>
+        <item name="android:textSize">@dimen/calcBtnTextSize</item>
+    </style>
+</resources>
