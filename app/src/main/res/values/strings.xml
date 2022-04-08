@@ -22,4 +22,6 @@
     <string name="result">Calculator results</string>
     <string name="operation_first_symbol_error">Операция не может быть первым символом.</string>
     <string name="two_operations_error">Не может быть 2 операции подряд</string>
+    <string name="theme_one">THEME ONE</string>
+    <string name="theme_two">THEME TWO</string>
 </resources>

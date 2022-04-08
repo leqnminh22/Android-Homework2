@@ -17,7 +17,11 @@
         <item name="equalButtonColor">@color/orange</item>
         <item name="materialButtonStyle">@style/CalcBtn</item>
     </style>
-    
+
+    <style name="Theme.Homework2.V2">
+        <item name="materialButtonStyle">@style/CalcBtn.V2</item>
+    </style>
+
 
 
 

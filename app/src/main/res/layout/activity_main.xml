@@ -197,5 +197,26 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/switchThemePanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ffithButtonPanel">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/theme_one"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/theme_one"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/them_two"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/theme_two"/>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
