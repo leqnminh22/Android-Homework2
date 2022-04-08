@@ -2,4 +2,5 @@
 <resources>
     <dimen name="calcBtnTextSize">15sp</dimen>
     <dimen name="resultTextSize">25sp</dimen>
+    <dimen name="cornerRadiusSize">24dp</dimen>
 </resources>

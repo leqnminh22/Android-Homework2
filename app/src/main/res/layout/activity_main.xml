@@ -28,34 +28,23 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-        <Button
-            android:background="@drawable/rectangle"
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/clear"
-            style="@style/calc_land_button"
+            style="@style/CalcBtn.Clear"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/clear"/>
-        <Button
-            android:background="@drawable/rectangle"
-            android:id="@+id/plusminus"
-            style="@style/calc_button"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/plus_minus" />
-        <Button
-            android:background="@drawable/rectangle"
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/division"
-            style="@style/calc_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/division" />
-        <Button
-            android:background="@drawable/rectangle"
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/multiply"
-            style="@style/calc_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -71,34 +60,29 @@
         app:layout_constraintTop_toBottomOf="@+id/firstButtonPanel"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
-        <Button
-            android:background="@drawable/rectangle"
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/seven"
-            style="@style/calc_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/seven" />
-        <Button
-            android:background="@drawable/rectangle"
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/eight"
-            style="@style/calc_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/eight" />
-        <Button
-            android:background="@drawable/rectangle"
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/nine"
-            style="@style/calc_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/nine" />
-        <Button
-            android:background="@drawable/rectangle"
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/percent"
-            style="@style/calc_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -112,34 +96,30 @@
         app:layout_constraintTop_toBottomOf="@+id/secondButtonPanel"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
-        <Button
-            android:background="@drawable/rectangle"
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/four"
-            style="@style/calc_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/four" />
-        <Button
-            android:background="@drawable/rectangle"
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/five"
-            style="@style/calc_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/five" />
-        <Button
-            android:background="@drawable/rectangle"
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/six"
-            style="@style/calc_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/six" />
-        <Button
-            android:background="@drawable/rectangle"
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/plus"
-            style="@style/calc_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -154,34 +134,30 @@
         app:layout_constraintTop_toBottomOf="@+id/thirdButtonPanel"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
-        <Button
-            android:background="@drawable/rectangle"
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/one"
-            style="@style/calc_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/one" />
-        <Button
-            android:background="@drawable/rectangle"
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/two"
-            style="@style/calc_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/two"/>
-        <Button
-            android:background="@drawable/rectangle"
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/three"
-            style="@style/calc_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/three"/>
-        <Button
-            android:background="@drawable/rectangle"
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/minus"
-            style="@style/calc_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -196,26 +172,24 @@
         app:layout_constraintTop_toBottomOf="@+id/forthButtonPanel"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
-        <Button
-            android:background="@drawable/rectangle"
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/zero"
-            style="@style/calc_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/zero" />
-        <Button
-            android:background="@drawable/rectangle"
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/dot"
-            style="@style/calc_button"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/dot"/>
-        <Button
-            android:background="@drawable/rectangle"
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/equal"
-            style="@style/calc_equal_button"
+            style="@style/CalcBtn.Equals"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
