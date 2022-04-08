@@ -107,9 +107,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.dot:
                         number += ".";
                         break;
-                    case R.id.plusminus:
-                        number = "-" + number;
-                        break;
                 }
                 display.setText(number);
             }
@@ -125,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.eight).setOnClickListener(onNumberClickListener);
         findViewById(R.id.nine).setOnClickListener(onNumberClickListener);
         findViewById(R.id.dot).setOnClickListener(onNumberClickListener);
-        findViewById(R.id.plusminus).setOnClickListener(onNumberClickListener);
     }
 
     public void setOpOnClickListener() {

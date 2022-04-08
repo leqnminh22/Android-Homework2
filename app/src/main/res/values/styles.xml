@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="CalcBtn" parent="Widget.MaterialComponents.Button">
-        <item name="backgroundTint">@color/darkGrey</item>>
+        <item name="backgroundTint">@color/btn</item>>
+        <item name="android:textColor">@color/btnText</item>
         <item name="android:textSize">@dimen/calcBtnTextSize</item>
         <item name="cornerRadius">@dimen/cornerRadiusSize</item>
 
     </style>
 
     <style name="CalcBtn.Clear">
-        <item name="backgroundTint">@color/red</item>>
+        <item name="backgroundTint">?clearButtonColor</item>>
     </style>
 
     <style name="CalcBtn.Equals">
-        <item name="backgroundTint">@color/orange</item>>
+        <item name="backgroundTint">?equalButtonColor</item>>
     </style>
+
 </resources>
