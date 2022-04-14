@@ -1,13 +1,14 @@
 package com.mle.homework2;
 
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
     private boolean isNewOp = true;
     private String op = "+";
     private String oldNumber = "";
+    private final static String THEME_KEY = "THEME_KEY";
+    private final static String THEME_ONE = "THEME_ONE";
+    private final static String THEME_TWO = "THEME_TWO";
 
 
     private static final String DISPLAY = "display";
@@ -23,11 +27,43 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // сохранить выбор
+        SharedPreferences sharedPreferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
+
+        String theme = sharedPreferences.getString(THEME_KEY, THEME_ONE);
+        switch (theme) {
+            case THEME_TWO:
+                setTheme(R.style.Theme_Homework2_V2);
+                break;
+            default:
+                setTheme(R.style.Theme_Homework2);
+        }
+
         setContentView(R.layout.activity_main);
 
         initView();
         setNumOnClickListener();
         setOpOnClickListener();
+
+        findViewById(R.id.theme_one).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sharedPreferences.edit().putString(THEME_KEY, THEME_ONE).apply();
+
+                recreate(); // перезапустить активити
+
+            }
+        });
+
+        findViewById(R.id.them_two).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sharedPreferences.edit().putString(THEME_KEY, THEME_TWO).apply();
+                recreate();
+
+            }
+        });
 
 
         findViewById(R.id.equal).setOnClickListener(new View.OnClickListener() {
@@ -68,12 +104,12 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener onNumberClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isNewOp) {
+                if (isNewOp) {
                     display.setText("");
                 }
                 isNewOp = false;
                 String number = display.getText().toString();
-                switch (view.getId()){
+                switch (view.getId()) {
                     case R.id.zero:
                         number += "0";
                         break;
@@ -107,9 +143,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.dot:
                         number += ".";
                         break;
-                    case R.id.plusminus:
-                        number = "-" + number;
-                        break;
                 }
                 display.setText(number);
             }
@@ -125,7 +158,6 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.eight).setOnClickListener(onNumberClickListener);
         findViewById(R.id.nine).setOnClickListener(onNumberClickListener);
         findViewById(R.id.dot).setOnClickListener(onNumberClickListener);
-        findViewById(R.id.plusminus).setOnClickListener(onNumberClickListener);
     }
 
     public void setOpOnClickListener() {

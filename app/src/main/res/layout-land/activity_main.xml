@@ -49,6 +49,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/multiply" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/percent"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/percent" />
     </LinearLayout>
 
 
@@ -56,7 +62,6 @@
         android:id="@+id/secondButtonPanel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/firstButtonPanel"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
@@ -80,19 +85,20 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/nine" />
-
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/percent"
+            android:id="@+id/plus"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/percent" />
+            android:text="@string/plus"
+            />
+
+
     </LinearLayout>
     <LinearLayout
         android:id="@+id/thirdButtonPanel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/secondButtonPanel"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
@@ -117,20 +123,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/six" />
-
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/plus"
+            android:id="@+id/theme_one"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/plus"
-            />
+            android:text="@string/theme_one"/>
+
+
     </LinearLayout>
     <LinearLayout
         android:id="@+id/forthButtonPanel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/thirdButtonPanel"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
@@ -155,20 +160,20 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/three"/>
-
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/minus"
+            android:id="@+id/them_two"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/minus"/>
+            android:text="@string/theme_two"/>
+
+
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ffithButtonPanel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/forthButtonPanel"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
@@ -186,6 +191,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/dot"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/minus"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/minus"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/equal"
@@ -195,28 +206,8 @@
             android:layout_height="wrap_content"
             android:text="@string/equals"/>
 
-    </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/switchThemePanel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ffithButtonPanel">
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/theme_one"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/theme_one"/>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/them_two"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/theme_two"/>
-    </LinearLayout>
 
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
