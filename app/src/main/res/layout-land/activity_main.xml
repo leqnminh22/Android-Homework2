@@ -123,12 +123,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/six" />
+
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/theme_one"
+            android:id="@+id/minus"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/theme_one"/>
+            android:text="@string/minus"/>
 
 
     </LinearLayout>
@@ -161,11 +162,11 @@
             android:layout_height="wrap_content"
             android:text="@string/three"/>
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/them_two"
+            android:id="@+id/preferences"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/theme_two"/>
+            android:text="@string/preferences"/>
 
 
     </LinearLayout>
@@ -191,12 +192,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/dot"/>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/minus"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/minus"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/equal"

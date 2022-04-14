@@ -1,14 +1,25 @@
-package com.mle.homework2;
+package com.mle.homework2.ui;
 
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.mle.homework2.Calculator;
+import com.mle.homework2.R;
+import com.mle.homework2.storage.Theme;
+import com.mle.homework2.storage.ThemeStorage;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -16,12 +27,36 @@ public class MainActivity extends AppCompatActivity {
     private static final String KEY_CALCULATIONS = "KEY_CALCULATIONS";
     private static final String DISPLAY = "display";
 
+
     private TextView display;
     private Calculator calculator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        ThemeStorage storage = ThemeStorage.getInstance(getApplicationContext());
+        Theme savedTheme = storage.getTheme();
+
+        ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                if(result.getResultCode() == Activity.RESULT_OK) {
+                    Intent data = result.getData();
+
+                    Theme chosenTheme = (Theme) data.getSerializableExtra(ThemeSelectionActivity.CHOSEN_THEME);
+
+                    storage.saveTheme(chosenTheme);
+
+                    recreate();
+                }
+
+            }
+        });
+
+        setTheme(savedTheme.getTheme());
+
         setContentView(R.layout.activity_main);
 
         calculator = new Calculator();
@@ -126,6 +161,15 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.multiply).setOnClickListener(onClickListener);
         findViewById(R.id.equal).setOnClickListener(onClickListener);
         findViewById(R.id.clear).setOnClickListener(onClickListener);
+
+        findViewById(R.id.preferences).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ThemeSelectionActivity.class);
+                intent.putExtra(ThemeSelectionActivity.SELECTED_THEME, savedTheme);
+                launcher.launch(intent);
+            }
+        });
     }
 
     public void initView() {

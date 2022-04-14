@@ -24,4 +24,5 @@
     <string name="two_operations_error">Не может быть 2 операции подряд</string>
     <string name="theme_one">THEME ONE</string>
     <string name="theme_two">THEME TWO</string>
+    <string name="preferences">PREFERENCES</string>
 </resources>

@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/Homework2/app/src/main/res/layout-land/activity_main.xml" value="0.5" />
-        <entry key="..\:/AndroidStudioProjects/Homework2/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/Homework2/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/AndroidStudioProjects/Homework2/app/src/main/res/layout/activity_theme_selection.xml" value="0.5541666666666667" />
+        <entry key="..\:/AndroidStudioProjects/Homework2/app/src/main/res/layout/item_theme.xml" value="0.5541666666666667" />
       </map>
     </option>
   </component>
