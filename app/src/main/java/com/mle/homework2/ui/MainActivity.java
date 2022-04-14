@@ -2,9 +2,7 @@ package com.mle.homework2.ui;
 
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -42,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
             public void onActivityResult(ActivityResult result) {
-                if(result.getResultCode() == Activity.RESULT_OK) {
+                if (result.getResultCode() == Activity.RESULT_OK) {
                     Intent data = result.getData();
 
                     Theme chosenTheme = (Theme) data.getSerializableExtra(ThemeSelectionActivity.CHOSEN_THEME);
@@ -61,6 +59,12 @@ public class MainActivity extends AppCompatActivity {
 
         calculator = new Calculator();
         initView();
+
+        if (getIntent() != null && getIntent().hasExtra("Welcome")) {
+            String msg = getIntent().getStringExtra("Welcome");
+            display.setText(msg);
+        }
+
 
         // Сохранение состояния
         if (savedInstanceState != null) {
