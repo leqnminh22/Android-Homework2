@@ -13,84 +13,117 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView display;
-    private boolean isNewOp = true;
-    private String op = "+";
-    private String oldNumber = "";
-    private final static String THEME_KEY = "THEME_KEY";
-    private final static String THEME_ONE = "THEME_ONE";
-    private final static String THEME_TWO = "THEME_TWO";
-
-
+    private static final String KEY_CALCULATIONS = "KEY_CALCULATIONS";
     private static final String DISPLAY = "display";
+
+    private TextView display;
+    private Calculator calculator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // сохранить выбор
-        SharedPreferences sharedPreferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
-
-        String theme = sharedPreferences.getString(THEME_KEY, THEME_ONE);
-        switch (theme) {
-            case THEME_TWO:
-                setTheme(R.style.Theme_Homework2_V2);
-                break;
-            default:
-                setTheme(R.style.Theme_Homework2);
-        }
-
-        setContentView(R.layout.activity_main);
-
+        calculator = new Calculator();
         initView();
-        setNumOnClickListener();
-        setOpOnClickListener();
 
-        findViewById(R.id.theme_one).setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sharedPreferences.edit().putString(THEME_KEY, THEME_ONE).apply();
 
-                recreate(); // перезапустить активити
-
-            }
-        });
-
-        findViewById(R.id.them_two).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sharedPreferences.edit().putString(THEME_KEY, THEME_TWO).apply();
-                recreate();
-
-            }
-        });
-
-
-        findViewById(R.id.equal).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String newNumber = display.getText().toString();
-                double result = 0.0;
-                switch (op) {
-                    case "+":
-                        result = Double.parseDouble(oldNumber) + Double.parseDouble(newNumber);
+                switch (view.getId()) {
+                    case R.id.zero:
+                        calculator.setFirstArg("0");
+                        setText();
                         break;
-                    case "-":
-                        result = Double.parseDouble(oldNumber) - Double.parseDouble(newNumber);
+                    case R.id.one:
+                        calculator.setFirstArg("1");
+                        setText();
                         break;
-                    case "*":
-                        result = Double.parseDouble(oldNumber) * Double.parseDouble(newNumber);
+                    case R.id.two:
+                        calculator.setFirstArg("2");
+                        setText();
                         break;
-                    case "/":
-                        result = Double.parseDouble(oldNumber) / Double.parseDouble(newNumber);
+                    case R.id.three:
+                        calculator.setFirstArg("3");
+                        setText();
                         break;
+                    case R.id.four:
+                        calculator.setFirstArg("4");
+                        setText();
+                        break;
+                    case R.id.five:
+                        calculator.setFirstArg("5");
+                        setText();
+                        break;
+                    case R.id.six:
+                        calculator.setFirstArg("6");
+                        setText();
+                        break;
+                    case R.id.seven:
+                        calculator.setFirstArg("7");
+                        setText();
+                        break;
+                    case R.id.eight:
+                        calculator.setFirstArg("8");
+                        setText();
+                        break;
+                    case R.id.nine:
+                        calculator.setFirstArg("9");
+                        setText();
+                        break;
+                    case R.id.dot:
+                        calculator.setFirstArg("0.");
+                        setText();
+                        break;
+                    case R.id.plus:
+                        calculator.setAddFlag(true);
+                        display.setText("+");
+                        break;
+                    case R.id.minus:
+                        calculator.setSubFlag(true);
+                        display.setText("-");
+                        break;
+                    case R.id.multiply:
+                        calculator.setMulFlag(true);
+                        display.setText("*");
+                        break;
+                    case R.id.division:
+                        calculator.setDivFlag(true);
+                        display.setText("/");
+                        break;
+                    case R.id.equal:
+                        calculator.calculations();
+                        display.setText(calculator.getCalculations());
+                        break;
+                    case R.id.clear:
+                        calculator.reset();
+                        display.setText("0");
                 }
-                display.setText(result + "");
             }
-        });
+        };
+        findViewById(R.id.zero).setOnClickListener(onClickListener);
+        findViewById(R.id.one).setOnClickListener(onClickListener);
+        findViewById(R.id.two).setOnClickListener(onClickListener);
+        findViewById(R.id.three).setOnClickListener(onClickListener);
+        findViewById(R.id.four).setOnClickListener(onClickListener);
+        findViewById(R.id.five).setOnClickListener(onClickListener);
+        findViewById(R.id.six).setOnClickListener(onClickListener);
+        findViewById(R.id.seven).setOnClickListener(onClickListener);
+        findViewById(R.id.eight).setOnClickListener(onClickListener);
+        findViewById(R.id.nine).setOnClickListener(onClickListener);
+        findViewById(R.id.dot).setOnClickListener(onClickListener);
+        findViewById(R.id.plus).setOnClickListener(onClickListener);
+        findViewById(R.id.minus).setOnClickListener(onClickListener);
+        findViewById(R.id.division).setOnClickListener(onClickListener);
+        findViewById(R.id.multiply).setOnClickListener(onClickListener);
+        findViewById(R.id.equal).setOnClickListener(onClickListener);
+        findViewById(R.id.clear).setOnClickListener(onClickListener);
 
+
+        // Сохранение состояния
         if (savedInstanceState != null) {
             display.setText(savedInstanceState.getString(DISPLAY));
+            calculator = savedInstanceState.getParcelable(KEY_CALCULATIONS);
         }
 
     }
@@ -99,108 +132,15 @@ public class MainActivity extends AppCompatActivity {
         display = findViewById(R.id.resultField);
     }
 
-    public void setNumOnClickListener() {
-
-        View.OnClickListener onNumberClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (isNewOp) {
-                    display.setText("");
-                }
-                isNewOp = false;
-                String number = display.getText().toString();
-                switch (view.getId()) {
-                    case R.id.zero:
-                        number += "0";
-                        break;
-                    case R.id.one:
-                        number += "1";
-                        break;
-                    case R.id.two:
-                        number += "2";
-                        break;
-                    case R.id.three:
-                        number += "3";
-                        break;
-                    case R.id.four:
-                        number += "4";
-                        break;
-                    case R.id.five:
-                        number += "5";
-                        break;
-                    case R.id.six:
-                        number += "6";
-                        break;
-                    case R.id.seven:
-                        number += "7";
-                        break;
-                    case R.id.eight:
-                        number += "8";
-                        break;
-                    case R.id.nine:
-                        number += "9";
-                        break;
-                    case R.id.dot:
-                        number += ".";
-                        break;
-                }
-                display.setText(number);
-            }
-        };
-        findViewById(R.id.zero).setOnClickListener(onNumberClickListener);
-        findViewById(R.id.one).setOnClickListener(onNumberClickListener);
-        findViewById(R.id.two).setOnClickListener(onNumberClickListener);
-        findViewById(R.id.three).setOnClickListener(onNumberClickListener);
-        findViewById(R.id.four).setOnClickListener(onNumberClickListener);
-        findViewById(R.id.five).setOnClickListener(onNumberClickListener);
-        findViewById(R.id.six).setOnClickListener(onNumberClickListener);
-        findViewById(R.id.seven).setOnClickListener(onNumberClickListener);
-        findViewById(R.id.eight).setOnClickListener(onNumberClickListener);
-        findViewById(R.id.nine).setOnClickListener(onNumberClickListener);
-        findViewById(R.id.dot).setOnClickListener(onNumberClickListener);
+    public void setText() {
+        display.setText(calculator.getResult());
     }
 
-    public void setOpOnClickListener() {
-
-        View.OnClickListener onOperatorClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                isNewOp = true;
-                oldNumber = display.getText().toString();
-                switch (view.getId()) {
-                    case R.id.minus:
-                        op = "-";
-                        break;
-                    case R.id.plus:
-                        op = "+";
-                        break;
-                    case R.id.division:
-                        op = "/";
-                        break;
-                    case R.id.multiply:
-                        op = "*";
-                        break;
-                }
-            }
-        };
-        findViewById(R.id.minus).setOnClickListener(onOperatorClickListener);
-        findViewById(R.id.plus).setOnClickListener(onOperatorClickListener);
-        findViewById(R.id.multiply).setOnClickListener(onOperatorClickListener);
-        findViewById(R.id.division).setOnClickListener(onOperatorClickListener);
-
-        findViewById(R.id.clear).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                display.setText("0");
-                isNewOp = true;
-            }
-        });
-
-    }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString(DISPLAY, (String) display.getText());
+        outState.putParcelable(KEY_CALCULATIONS, calculator);
     }
 }
