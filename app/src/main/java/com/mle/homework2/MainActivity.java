@@ -22,9 +22,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         calculator = new Calculator();
         initView();
+
+        // Сохранение состояния
+        if (savedInstanceState != null) {
+            display.setText(savedInstanceState.getString(DISPLAY));
+            calculator = savedInstanceState.getParcelable(KEY_CALCULATIONS);
+        }
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
@@ -98,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.clear:
                         calculator.reset();
                         display.setText("0");
+                        break;
                 }
             }
         };
@@ -118,14 +126,6 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.multiply).setOnClickListener(onClickListener);
         findViewById(R.id.equal).setOnClickListener(onClickListener);
         findViewById(R.id.clear).setOnClickListener(onClickListener);
-
-
-        // Сохранение состояния
-        if (savedInstanceState != null) {
-            display.setText(savedInstanceState.getString(DISPLAY));
-            calculator = savedInstanceState.getParcelable(KEY_CALCULATIONS);
-        }
-
     }
 
     public void initView() {
